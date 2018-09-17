@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:wordfinder="clr-namespace:Wordfinder"
+             x:Class="Wordfinder.HomePage">
+    <ContentPage.Content Padding =" 0">
+
+        <StackLayout x:Name="MainStack" Orientation="Vertical">
+            <!--setting items to be stacked vertically and setting background to white-->
+            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="0">
+                <StackLayout.BackgroundColor>
+                    <OnPlatform x:TypeArguments="Color" Android="White" iOS="White" ></OnPlatform>
+                </StackLayout.BackgroundColor>
+
+                <StackLayout x:Name ="OuterStack1" BackgroundColor="White">
+                    <StackLayout Orientation="Horizontal">
+
+                            <StackLayout x:Name="ButtonLabelStack" Orientation="Horizontal">
+
+
+                            <StackLayout Orientation="Vertical">
+                                <Button  x:Name="CameraButton" Image="cameraicon.png"  BackgroundColor="Transparent" HorizontalOptions ="Start" ></Button>
+                            <wordfinder:MyLabel x:Name="CameraLabel" Text="  Camera " ></wordfinder:MyLabel>
+                                
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical" BackgroundColor="White">
+                            <Button  x:Name="AlbumButton" Image="albumicon.png" BackgroundColor="Transparent" HorizontalOptions ="Start"></Button>
+
+                            <wordfinder:MyLabel x:Name="AlbumLabel" Text=" Album " ></wordfinder:MyLabel>
+                        </StackLayout>
+
+                            <Button x:Name="HomeButton" Image="homeicon.png" BackgroundColor="Transparent" IsVisible="False"></Button>
+
+                    </StackLayout>
+
+                    </StackLayout>
+
+
+                    <BoxView HeightRequest="15" BackgroundColor="White"></BoxView>
+                    <StackLayout>
+
+                            <StackLayout Orientation="Horizontal">
+                        <wordfinder:MyLabel x:Name="Describe" IsVisible="False" HeightRequest="100" ></wordfinder:MyLabel>
+
+                        <wordfinder:MyLabel x:Name="Actions"  IsVisible="False" HeightRequest="100" ></wordfinder:MyLabel>
+                        <wordfinder:MyLabel x:Name="Things"  IsVisible="False" HeightRequest="100" ></wordfinder:MyLabel>
+                       
+                    </StackLayout>
+
+                <StackLayout Orientation="Horizontal">
+                        <!-- to store photo taken/chosen=-->
+                            <StackLayout Orientation="Vertical">
+                                <Image x:Name ="ImgPhoto" HeightRequest="128" WidthRequest="160" HorizontalOptions="Start" ></Image>
+                         <StackLayout x:Name="LabelLayout">
+                               <wordfinder:MyLabel x:Name ="Result" HorizontalOptions ="Start" WidthRequest="150"></wordfinder:MyLabel>
+                            <!--Greater/Less buttons to modify result text from image recognition-->
+
+                            <Button x:Name ="Greater" Text ="+ More"  TextColor="White" BackgroundColor="Purple" IsVisible="False" HorizontalOptions="Start">
+                            
+                            </Button>
+                            <Button x:Name ="Less" Text="- Less" TextColor="White" BackgroundColor="Purple" IsVisible="False" HorizontalOptions="Start">
+                               
+                            </Button>
+                             </StackLayout>
+                        </StackLayout>
+
+                        <!-- to store result from image recognition on photo-->
+
+                         
+                    <Button x:Name="More" TextColor="White" Text=" + More" BackgroundColor="Purple" IsVisible="False" HorizontalOptions="Center" VerticalOptions="Center" HeightRequest="60" WidthRequest="100"></Button>
+
+
+                        <ListView x:Name ="listView"   BackgroundColor="White"  IsVisible="True"  ItemsSource="{x:Static wordfinder:HomePage.Items}" 
+                           HasUnevenRows="False"  HeightRequest="100" WidthRequest="200"
+                                ItemTapped="OnSelection">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <StackLayout>
+                                            <!--Mylabel class in view cell permits text to speech etc-->
+                                            <wordfinder:MyLabel Text="{Binding .}" />
+                                            <BoxView Color="Transparent" WidthRequest="53" HeightRequest="30" />
+                                        </StackLayout>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+
+                         
+
+
+                        </StackLayout>
+
+
+                    </StackLayout>
+
+
+                </StackLayout>
+                
+
+
+
+
+
+            </StackLayout>
+
+            <StackLayout BackgroundColor="White">
+
+            <Button x:Name="Undo" Image="UndoIcon.png" IsVisible="False"  BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></Button>
+            </StackLayout>
+                
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="White">
+
+                </StackLayout>
+
+
+                <StackLayout Orientation="Horizontal" VerticalOptions="End">
+                    <Button x:Name = "BottomBanner" BackgroundColor="Purple" Text="SETTINGS" TextColor="White" HorizontalOptions ="FillAndExpand" ></Button>
+
+                </StackLayout>
+
+            </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

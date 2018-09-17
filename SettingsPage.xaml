@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:wordfinder="clr-namespace:Wordfinder"
+             x:Class="Wordfinder.SettingsPage">
+    <ContentPage.Content>
+        <ScrollView>
+            <!--setting items to be stacked vertically and setting background to white-->
+            <StackLayout HorizontalOptions="FillAndExpand">
+                <StackLayout.BackgroundColor>
+                    <OnPlatform x:TypeArguments="Color" Android="White" iOS="White"></OnPlatform>
+                </StackLayout.BackgroundColor>
+                <wordfinder:MyLabel x:Name="SpeechSettings" Text="Speech Settings" ></wordfinder:MyLabel>
+              <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand"></StackLayout>
+                <wordfinder:MyLabel x:Name="SpeedLabel" Text="Speed" HorizontalOptions="Center" ></wordfinder:MyLabel>
+                <Slider x:Name="SpeedSlider"  Maximum="2" MinimumTrackColor ="Purple" MaximumTrackColor="PaleVioletRed"
+                  ThumbColor="Plum"      
+              ValueChanged="OnSpeedValueChanged"/>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand"></StackLayout>
+                <wordfinder:MyLabel x:Name="VolumeLabel" Text="Volume" HorizontalOptions ="Center"></wordfinder:MyLabel>
+                <Slider x:Name="VolumeSlider"  Maximum="1" MinimumTrackColor ="Purple"  MaximumTrackColor="PaleVioletRed" 
+                 ThumbColor="Plum" 
+                        ValueChanged="OnVolumeValueChanged"/>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand"></StackLayout>
+
+                <wordfinder:MyLabel x:Name="PitchLabel" Text="Pitch" HorizontalOptions ="Center"></wordfinder:MyLabel>
+                <Slider x:Name="PitchSlider"  Maximum="2" MinimumTrackColor ="Purple"  MaximumTrackColor="PaleVioletRed" 
+                 ThumbColor="Plum"
+                         ValueChanged="OnPitchValueChanged"/>
+
+
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand"
+          VerticalOptions="FillAndExpand" BackgroundColor="Transparent">
+                </StackLayout>
+
+
+                <StackLayout Orientation="Horizontal">
+                    <wordfinder:MyLabel x:Name="LanguageLabel" ></wordfinder:MyLabel>
+                    <Button x:Name = "Language" Text="Change" TextColor="White" BackgroundColor="Purple"></Button>
+                </StackLayout>
+                  
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand"
+          VerticalOptions="FillAndExpand" BackgroundColor="Transparent">
+                </StackLayout>
+                
+              <!--filling space to push banner to bottom-->  
+         <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand"
+          VerticalOptions="FillAndExpand" BackgroundColor="Transparent">
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" VerticalOptions="End">
+                <Button x:Name = "BottomBanner" BackgroundColor="Purple" Text="HOME" TextColor="White" HorizontalOptions ="FillAndExpand" ></Button>
+            </StackLayout>
+
+
+        </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
